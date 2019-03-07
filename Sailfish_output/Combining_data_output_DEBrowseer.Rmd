@@ -64,7 +64,7 @@ colnames(Untreated_1_gene)
 
 ```{r}
 Basics <- select(RNA_1_gene, c("Name", "TPM")) %>%
-  bind_cols(Basics, RNA_4_gene['TPM'])
+  bind_cols(RNA_4_gene['TPM'], RNA_3_gene['TPM'])
 ```
 
 
