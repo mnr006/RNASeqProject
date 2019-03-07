@@ -1,0 +1,75 @@
+---
+title: "Combining data output for DEBrowser"
+output: github_document
+---
+
+
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+```{r}
+library(dplyr)
+```
+
+```{r}
+getwd()
+setwd("/Users/mnr006/RNASeqProject/Sailfish_output")
+
+#loading in the gene data first
+RNA_1_gene <- read.csv("RNAi-1_gene.tsv", header = TRUE, sep = "\t")
+RNA_4_gene <- read.csv("RNAi-4_gene.tsv", header = TRUE, sep = "\t")
+RNA_3_gene <- read.csv("RNAi-3_gene.tsv", header = TRUE, sep = "\t")
+
+Untreated_1_gene <- read.csv("Un-1_gene.tsv", header = TRUE, sep = "\t")
+Untreated_4_gene <- read.csv("Un-4_gene.tsv", header = TRUE, sep = "\t")
+Untreated_3_gene <- read.csv("Un-3_gene.tsv", header = TRUE, sep = "\t")
+
+
+#loading in the trancscript data next
+RNA_1_transcript <- read.csv("RNAi-1_transcript.tsv", header = TRUE, sep = "\t")
+RNA_4_transcript <- read.csv("RNAi-4_transcript.tsv", header = TRUE, sep = "\t")
+RNA_3_transcript <- read.csv("RNAi-3_transcript.tsv", header = TRUE, sep = "\t")
+
+Untreated_1_transcript <- read.csv("Un-1_transcript.tsv", header = TRUE, sep = "\t")
+Untreated_4_transcript <- read.csv("Un-4_transcript.tsv", header = TRUE, sep = "\t")
+Untreated_3_transcript <- read.csv("Un-3_transcript.tsv", header = TRUE, sep = "\t")
+
+
+#inspecting structure of each dataset to confirm they look complete/correct/comparable
+str(RNA_1_gene)
+str(RNA_4_gene)
+str(RNA_3_gene)
+
+str(Untreated_1_gene)
+str(Untreated_4_gene)
+str(Untreated_3_gene)
+
+str(RNA_1_transcript)
+str(RNA_4_transcript)
+str(RNA_3_transcript)
+
+str(Untreated_1_transcript)
+str(Untreated_4_transcript)
+str(Untreated_3_transcript)
+
+colnames(RNA_1_gene)
+colnames(Untreated_1_gene)
+```
+
+
+```{r}
+Basics <- select(RNA_1_gene, c("Name", "TPM")) %>%
+  bind_cols(Basics, RNA_4_gene['TPM'])
+```
+
+
+
+
+
+
+
