@@ -11,12 +11,13 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 
-
-```{r}
+Loading the necessary packages
+```{r Package List}
 library(dplyr)
 ```
 
-```{r}
+```{r Loading in the data}
+#Check where I am (using multiple computers, important to be in the correct working directory)
 getwd()
 setwd("/Users/mnr006/RNASeqProject/Sailfish_output")
 
@@ -57,12 +58,13 @@ str(Untreated_1_transcript)
 str(Untreated_4_transcript)
 str(Untreated_3_transcript)
 
+#confirming that the column names are the same across treatments
 colnames(RNA_1_gene)
 colnames(Untreated_1_gene)
 ```
 
 
-```{r}
+```{r Making the tables}
 #This works but lets use dplyr mutate instead
 #Basics <- select(RNA_1_gene, c("Name", "NumReads")) %>%
  # bind_cols(RNA_4_gene['TPM'], RNA_3_gene['NumReads'])
@@ -80,8 +82,16 @@ Allsamples_transcript <- select(RNA_1_transcript, c("Name", "NumReads")) %>%
 
 ```
 
+```{r Saving tables}
+write.table(Allsamples_genes, "Allsamples_genes.tsv", quote = FALSE, sep = "\t", row.names = FALSE)
+getwd()
+write.table(Allsamples_transcript, "Allsamples_transcript.tsv", quote = FALSE, sep = "\t", row.names = FALSE)
+```
 
 
+```{r Metadata}
+#May need to make a new metadata table but it looks like the target.txt files are working appropriately for this 
+```
 
 
 
