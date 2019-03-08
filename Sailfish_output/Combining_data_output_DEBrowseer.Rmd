@@ -63,8 +63,21 @@ colnames(Untreated_1_gene)
 
 
 ```{r}
-Basics <- select(RNA_1_gene, c("Name", "TPM")) %>%
-  bind_cols(RNA_4_gene['TPM'], RNA_3_gene['TPM'])
+#This works but lets use dplyr mutate instead
+#Basics <- select(RNA_1_gene, c("Name", "NumReads")) %>%
+ # bind_cols(RNA_4_gene['TPM'], RNA_3_gene['NumReads'])
+
+#using dplyr to add new columns to gene table
+Allsamples_genes <- select(RNA_1_gene, c("Name", "NumReads")) %>%
+  mutate(RNAi1 = NumReads, RNAi3 = RNA_3_gene$NumReads, RNAi4 = RNA_4_gene$NumReads, Ctrl1 = Untreated_1_gene$NumReads, Ctrl3 = Untreated_3_gene$NumReads, Ctrl4 = Untreated_4_gene$NumReads) %>%
+  select(-NumReads)
+
+
+#now making transcript table (trying a slightly different way so we don't need to go back and unselect the NumReads from the first part)
+Allsamples_transcript <- select(RNA_1_transcript, c("Name", "NumReads")) %>%
+  rename(RNAi1=NumReads) %>% 
+  mutate(RNAi3 = RNA_3_transcript$NumReads, RNAi4 = RNA_4_transcript$NumReads, Ctrl1 = Untreated_1_transcript$NumReads, Ctrl3 = Untreated_3_transcript$NumReads, Ctrl4 = Untreated_4_transcript$NumReads)
+
 ```
 
 
