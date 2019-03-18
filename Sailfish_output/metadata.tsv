@@ -1,0 +1,7 @@
+sample	batch	condition
+/Users/mnr006/RNASeqProject/Sailfish_output/Untreated_1.transcript.tsv	Single	Untreated
+/Users/mnr006/RNASeqProject/Sailfish_output/Untreated_3.transcript.tsv	Paired	Untreated
+/Users/mnr006/RNASeqProject/Sailfish_output/Untreated_4.transcript.tsv	Paired	Untreated
+/Users/mnr006/RNASeqProject/Sailfish_output/RNAi_1.transcript.tsv	Single	RNAi
+/Users/mnr006/RNASeqProject/Sailfish_output/RNAi_3.transcript.tsv	Paired	RNAi
+/Users/mnr006/RNASeqProject/Sailfish_output/RNAi_4.transcript.tsv	Paired	RNAi
