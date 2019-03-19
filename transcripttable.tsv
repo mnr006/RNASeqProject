@@ -1,4 +1,4 @@
-Name	/Users/mnr006/RNASeqProject/Sailfish_output/RNAi_1.gene.tsv	/Users/mnr006/RNASeqProject/Sailfish_output/RNAi_3.gene.tsv	/Users/mnr006/RNASeqProject/Sailfish_output/RNAi_4.gene.tsv	/Users/mnr006/RNASeqProject/Sailfish_output/Untreated_1.gene.tsv	/Users/mnr006/RNASeqProject/Sailfish_output/Untreated_3.gene.tsv	/Users/mnr006/RNASeqProject/Sailfish_output/Untreated_4.gene.tsv
+Name	RNAi_1	RNAi_3	RNAi_4	Untreated_1	Untreated_3	Untreated_4
 FBtr0075502	0	0	0	0	0	0
 FBtr0300738	0	0	0	28.0355	0	0
 FBtr0300739	21.355	0	28.969	0	7.1357	40.9703
