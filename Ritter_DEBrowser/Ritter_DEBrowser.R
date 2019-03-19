@@ -16,9 +16,9 @@ if (!require("tidyverse")) install.packages("tidyverse"); library(tidyverse)
 
 genefilelist <- list.files(path="/Users/mnr006/RNASeqProject/Sailfish_output", pattern="*.gene.tsv", full.names=T)
 genefiles <- lapply(genefilelist, read_tsv)
-samplenames <- gsub("SARTools/S2_DRSC_CG8144_", "", genefilelist)
-samplenames <- gsub("SARTools/S2_DRSC_","", samplenames)
-samplenames <- gsub(".genes.tsv", "", samplenames)
+samplenames <- gsub("/Users/mnr006/RNASeqProject/Sailfish_output/", "", genefilelist)
+#samplenames <- gsub("SARTools/S2_DRSC_","", samplenames)
+samplenames <- gsub(".gene.tsv", "", samplenames)
 samplenames <- gsub("-","_", samplenames) # DEBrowser doesn't like -
 samplenames
 
@@ -49,7 +49,6 @@ write_tsv(transcripttable, path="transcripttable.tsv")
 transcripts_target <- read_delim("/Users/mnr006/RNASeqProject/Sailfish_output/sailfish.transcripts.target.txt", 
                                  "\t", escape_double = FALSE, trim_ws = TRUE)
 transcripts_target
-colnames(transcripttable) <- gsub("gene","transcript", colnames(transcripttable))
 colnames(transcripttable) <- gsub("-","_", colnames(transcripttable))
 colnames(transcripttable)
 transcripts_target$label[1:3] <- colnames(transcripttable)[5:7]

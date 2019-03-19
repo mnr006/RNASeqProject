@@ -106,3 +106,4 @@ Biol364_664roster$Pipeline <- c("kallisto->DESeq2",
 table(Biol364_664roster$Pipeline)
 kable(Biol364_664roster)
 ```
+

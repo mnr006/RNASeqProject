@@ -1,5 +1,5 @@
 ---
-title: ""
+title: "Sailfish and Limma pipeline output"
 output: html_notebook
 ---
 
@@ -7,9 +7,15 @@ This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute
 
 Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Cmd+Shift+Enter*. 
 
-```{r}
+```{r Uploading Data}
 Up_regulated <- read.csv("Sailfish_Limma_up.csv")
+Down_regulated <- read.csv("Sailfish_Limma_down.csv")
 
+library(dplyr)
+
+Up_down_formatted <- read.csv("Sailfish_Limma_formatted_updown.csv")
+Up_down_formatted <- select(Up_down_formatted, Align, DE, Direction, ID) #removing unecessary columns
+write.csv(Up_down_formatted, file = "Sailfish_Limma_updownregulation_table.tsv", quote = FALSE)
 ```
 
 Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Cmd+Option+I*.
